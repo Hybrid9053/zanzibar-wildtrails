@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zanzibar Wild Trails | Safari & Tour Agency</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">Zanzibar<span>WildTrails</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services & Destinations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover Tanzania's Wild Heart & <span>Zanzibar's Shores</span></h1>
+      <p>Authentic safaris, island escapes, and local guides who know every trail, tide, and story worth telling.</p>
+      <div class="hero-buttons">
+        <a href="services.html" class="btn btn-primary">Explore Tours</a>
+        <a href="contact.html" class="btn btn-outline">Book a Trip</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Who We Are</h2>
+      <p>We are a locally owned safari and tour agency based between Zanzibar and Mainland Tanzania, connecting travelers to the real Tanzania through small-group tours led by experienced local guides.</p>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="section-title">
+      <h2>Featured Destinations</h2>
+      <p>A glimpse of the journeys waiting for you.</p>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-image placeholder">
+          <span class="location-tag">Serengeti</span>
+          Image Placeholder
+        </div>
+        <div class="card-body">
+          <h3>Serengeti National Park</h3>
+          <p>Witness the Great Migration and endless plains teeming with lions, elephants, and wildebeest herds.</p>
+          <a href="services.html" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image placeholder">
+          <span class="location-tag">Stone Town</span>
+          Image Placeholder
+        </div>
+        <div class="card-body">
+          <h3>Stone Town & Spice Farms</h3>
+          <p>Wander historic alleys, taste exotic spices, and explore centuries of Swahili, Arab, and Indian heritage.</p>
+          <a href="services.html" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image placeholder">
+          <span class="location-tag">Nungwi</span>
+          Image Placeholder
+        </div>
+        <div class="card-body">
+          <h3>Nungwi Beach & Mnemba Island</h3>
+          <p>White sand beaches and world-class snorkeling around one of the Indian Ocean's most pristine reefs.</p>
+          <a href="services.html" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Zanzibar WildTrails</h4>
+        <p>Local experts in safaris and island tours across Zanzibar and Mainland Tanzania.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Stone Town, Zanzibar, Tanzania</p>
+        <p>+255 XXX XXX XXX</p>
+        <p>info@zanzibarwildtrails.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Zanzibar WildTrails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
