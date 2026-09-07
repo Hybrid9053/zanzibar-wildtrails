@@ -27,8 +27,8 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Discover Tanzania's Wild Heart & <span>Zanzibar's Shores</span></h1>
-      <p>Authentic safaris, island escapes, and local guides who know every trail, tide, and story worth telling.</p>
+      <h1>Discover Zanzibar's Wild Heart & <span>Pristine Shores</span></h1>
+      <p>Authentic island safaris, beach escapes, and local guides who know every trail, tide, and story worth telling.</p>
       <div class="hero-buttons">
         <a href="services.html" class="btn btn-primary">Explore Tours</a>
         <a href="contact.html" class="btn btn-outline">Book a Trip</a>
@@ -39,7 +39,7 @@
   <section class="section">
     <div class="section-title">
       <h2>Who We Are</h2>
-      <p>We are a locally owned safari and tour agency based between Zanzibar and Mainland Tanzania, connecting travelers to the real Tanzania through small-group tours led by experienced local guides.</p>
+      <p>We are a locally owned tour agency based in Zanzibar, connecting travelers to the real island through small-group tours led by experienced local guides.</p>
     </div>
   </section>
 
@@ -52,13 +52,14 @@
 
       <div class="card">
         <div class="card-image placeholder">
-          <span class="location-tag">Serengeti, Mainland Tanzania</span>
+          <span class="location-tag">Central-East Unguja Island</span>
           Image Placeholder
         </div>
         <div class="card-body">
-          <h3>Serengeti National Park</h3>
-          <p>Witness the Great Migration and endless plains teeming with lions, elephants, and wildebeest herds.</p>
-          <p class="card-location-line">📍 Serengeti, Mainland Tanzania</p>
+          <h3>Jozani Chwaka Bay National Park</h3>
+          <p>Zanzibar's only national park, home to the rare red colobus monkey and a mangrove boardwalk through groundwater forest.</p>
+          <p class="card-location-line">📍 Central-East Unguja Island</p>
+          <button class="btn-map" onclick="openMap('Jozani Chwaka Bay National Park, Zanzibar, Tanzania')">🗺️ View on Map</button>
           <a href="services.html" class="btn btn-primary">View Details</a>
         </div>
       </div>
@@ -72,6 +73,7 @@
           <h3>Stone Town & Spice Farms</h3>
           <p>Wander historic alleys, taste exotic spices, and explore centuries of Swahili, Arab, and Indian heritage.</p>
           <p class="card-location-line">📍 Zanzibar Town, West Coast</p>
+          <button class="btn-map" onclick="openMap('Stone Town, Zanzibar, Tanzania')">🗺️ View on Map</button>
           <a href="services.html" class="btn btn-primary">View Details</a>
         </div>
       </div>
@@ -85,6 +87,7 @@
           <h3>Nungwi Beach & Mnemba Island</h3>
           <p>White sand beaches and world-class snorkeling around one of the Indian Ocean's most pristine reefs.</p>
           <p class="card-location-line">📍 Northernmost Tip, North Coast</p>
+          <button class="btn-map" onclick="openMap('Nungwi Beach, Zanzibar, Tanzania')">🗺️ View on Map</button>
           <a href="services.html" class="btn btn-primary">View Details</a>
         </div>
       </div>
@@ -92,11 +95,19 @@
     </div>
   </section>
 
+  <!-- Map Modal -->
+  <div class="map-overlay" id="mapModal">
+    <div class="map-box">
+      <button class="map-close" onclick="closeMap()">&times;</button>
+      <iframe id="mapFrame" src="" loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Zanzibar Tour Company</h4>
-        <p>Local experts in safaris and island tours across Zanzibar and Mainland Tanzania.</p>
+        <p>Local experts in island tours and excursions across Zanzibar.</p>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
@@ -124,6 +135,27 @@
     const navLinks = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('open');
+    });
+
+    function openMap(query) {
+      const frame = document.getElementById('mapFrame');
+      frame.src = 'https://www.google.com/maps?q=' + encodeURIComponent(query) + '&output=embed';
+      document.getElementById('mapModal').classList.add('open');
+    }
+
+    function closeMap() {
+      document.getElementById('mapModal').classList.remove('open');
+      document.getElementById('mapFrame').src = '';
+    }
+
+    document.getElementById('mapModal').addEventListener('click', function(e) {
+      if (e.target === this) closeMap();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('mapModal').classList.contains('open')) {
+        closeMap();
+      }
     });
   </script>
 
