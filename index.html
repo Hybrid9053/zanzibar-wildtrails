@@ -26,6 +26,17 @@
   </header>
 
   <section class="hero">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide active" style="background-image: url('images/hero/hero-1-stonetown-aerial.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/hero/hero-2-stonetown-fort.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/hero/hero-3-beach-swing.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/hero/hero-4-stonetown-waterfront.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/hero/hero-5-dhow-sunset.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/hero/hero-6-forodhani-jump.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/hero/hero-7-rock-restaurant.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('images/hero/hero-8-stonetown-door.jpg');"></div>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Discover Zanzibar's Wild Heart & <span>Pristine Shores</span></h1>
       <p>Authentic island safaris, beach escapes, and local guides who know every trail, tide, and story worth telling.</p>
@@ -136,6 +147,18 @@
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('open');
     });
+
+    // Hero image slider - changes photo every 5 seconds
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+
+    function showNextSlide() {
+      heroSlides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      heroSlides[currentSlide].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 5000);
 
     function openMap(query) {
       const frame = document.getElementById('mapFrame');
