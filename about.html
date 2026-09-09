@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Bennsayd Tour and Safaris</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Applies saved theme (or system preference) before paint, so the
+    // page never flashes light then switches to dark on load.
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -15,8 +26,25 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About Us</a></li>
         <li><a href="services.html">Services & Destinations</a></li>
+        <li><a href="experience.html">Experience</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span>
         <span></span>
@@ -91,6 +119,55 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="section-title">
+      <h2>Booking With Confidence</h2>
+      <p>Real licensing, real protection - exactly what to expect when you book with us.</p>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">📜</div>
+        <h4>Tourism Licensing</h4>
+        <ul>
+          <li>Registered with ZATI (Zanzibar Association of Tourism Investors)</li>
+          <li>Licensed tour operator with ZTB (Zanzibar Tourism Board)</li>
+          <li>License No: [add your registration number]</li>
+        </ul>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon">🛡️</div>
+        <h4>Liability Insurance</h4>
+        <ul>
+          <li>Passenger liability insurance on every tour</li>
+          <li>Coverage for boat and water-based excursions</li>
+          <li>Policy details available on request</li>
+        </ul>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon">💰</div>
+        <h4>Financial Protection</h4>
+        <ul>
+          <li>Full financial bonding on advance bookings</li>
+          <li>Transparent 20% deposit, balance on arrival</li>
+          <li>Secure payment processing</li>
+        </ul>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon">⭐</div>
+        <h4>Verified Reviews</h4>
+        <ul>
+          <li>100% verified, certified local guides</li>
+          <li>Tripadvisor rated - [add your rating]</li>
+          <li>Google reviews - [add your rating]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
@@ -117,6 +194,8 @@
       <p>&copy; 2026 Bennsayd Tour and Safaris. All rights reserved.</p>
     </div>
   </footer>
+
+  <script src="app.js"></script>
 
   <script>
     const navToggle = document.getElementById('navToggle');

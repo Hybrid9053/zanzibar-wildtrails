@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience | Bennsayd Tour and Safaris</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Applies saved theme (or system preference) before paint, so the
+    // page never flashes light then switches to dark on load.
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="Bennsayd Tour and Safaris"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services & Destinations</a></li>
+        <li><a href="experience.html" class="active">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding: 3.5rem 1.5rem;">
+    <div class="hero-content">
+      <h1>Plan Your <span>Zanzibar Experience</span></h1>
+      <p>Build your day-by-day itinerary, lock in your booking, and get a feel for the island before you land.</p>
+    </div>
+  </section>
+
+  <!-- ================= ITINERARY BUILDER ================= -->
+  <section class="experience-section">
+    <div class="section-title">
+      <h2>Sample 5-Day Zanzibar Itinerary</h2>
+      <p>Click a day to see the plan. Every itinerary is fully customizable for your group.</p>
+    </div>
+
+    <div class="itinerary-wrap">
+      <div class="itinerary-days">
+        <button class="day-tab active">
+          <span class="day-number">1</span>
+          <span class="day-label"><strong>Stone Town</strong><span>Arrival Day</span></span>
+        </button>
+        <button class="day-tab">
+          <span class="day-number">2</span>
+          <span class="day-label"><strong>Spice Farm</strong><span>& Prison Island</span></span>
+        </button>
+        <button class="day-tab">
+          <span class="day-number">3</span>
+          <span class="day-label"><strong>Jozani Forest</strong><span>& Kuza Cave</span></span>
+        </button>
+        <button class="day-tab">
+          <span class="day-number">4</span>
+          <span class="day-label"><strong>Nungwi Beach</strong><span>& Mnemba Snorkel</span></span>
+        </button>
+        <button class="day-tab">
+          <span class="day-number">5</span>
+          <span class="day-label"><strong>Departure</strong><span>Fly Home</span></span>
+        </button>
+      </div>
+
+      <div class="itinerary-detail" id="itineraryDetail">
+        <!-- Filled in by app.js on page load -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESERVATION & DEPOSIT WIDGET ================= -->
+  <section class="experience-section bg-light">
+    <div class="section-title">
+      <h2>Reserve Your Trip</h2>
+      <p>Get an instant price estimate and lock in your dates with a secure deposit.</p>
+    </div>
+
+    <div class="reservation-widget">
+      <h3>Booking Details</h3>
+      <p class="widget-subtitle">Fill in your trip details for a live price estimate.</p>
+
+      <form id="reservationForm">
+        <div class="reservation-row">
+          <div class="form-group">
+            <label for="arrivalDate">Arrival Date</label>
+            <input type="date" id="arrivalDate" name="arrivalDate" required>
+          </div>
+          <div class="form-group">
+            <label for="departureDate">Departure Date</label>
+            <input type="date" id="departureDate" name="departureDate" required>
+          </div>
+        </div>
+
+        <div class="reservation-row">
+          <div class="form-group">
+            <label for="adultsCount">Adults</label>
+            <input type="number" id="adultsCount" name="adultsCount" min="1" value="2" required>
+          </div>
+          <div class="form-group">
+            <label for="childrenCount">Children</label>
+            <input type="number" id="childrenCount" name="childrenCount" min="0" value="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="packageTier">Package Tier</label>
+          <select id="packageTier" name="packageTier">
+            <option value="budget">Budget</option>
+            <option value="comfort" selected>Comfort</option>
+            <option value="luxury">Luxury</option>
+          </select>
+        </div>
+
+        <div class="price-summary">
+          <div class="price-line">
+            <span>Nights</span>
+            <span id="summaryNights">0</span>
+          </div>
+          <div class="price-line">
+            <span>Travelers</span>
+            <span id="summaryTravelers">0</span>
+          </div>
+          <div class="price-total">
+            <span>Estimated Total</span>
+            <span id="summaryTotal">$0.00</span>
+          </div>
+          <div class="deposit-line">
+            <span>🔒 Secure Deposit (20%)</span>
+            <span id="summaryDeposit">$0.00</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">
+          Pay Deposit & Reserve
+        </button>
+        <p class="checkout-status" id="checkoutStatus"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= AUDIO-VISUAL EXPERIENCE ================= -->
+  <section class="experience-section">
+    <div class="section-title">
+      <h2>Feel the Island</h2>
+      <p>A taste of Zanzibar's sounds and scenes before you arrive.</p>
+    </div>
+
+    <div class="av-grid">
+      <div class="soundscape-widget">
+        <button class="sound-toggle-btn" id="soundToggle" aria-label="Play ambient ocean sound">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <p>Ocean waves &amp; island ambience</p>
+        <!-- Add your own royalty-free nature sound file at this path -->
+        <audio id="ambientAudio" src="audio/ocean-waves.mp3" loop muted preload="none"></audio>
+      </div>
+
+      <div class="video-story-row">
+        <!-- Add real vertical (9:16) video clips at these paths.
+             Hovering/focusing a card auto-plays it unmuted; leaving pauses it. -->
+        <div class="video-story-card">
+          <video src="videos/story-stonetown.mp4" loop muted playsinline preload="none"></video>
+          <span class="story-label">Stone Town</span>
+        </div>
+        <div class="video-story-card">
+          <video src="videos/story-nungwi.mp4" loop muted playsinline preload="none"></video>
+          <span class="story-label">Nungwi Beach</span>
+        </div>
+        <div class="video-story-card">
+          <video src="videos/story-spicefarm.mp4" loop muted playsinline preload="none"></video>
+          <span class="story-label">Spice Farm</span>
+        </div>
+        <div class="video-story-card">
+          <video src="videos/story-mnemba.mp4" loop muted playsinline preload="none"></video>
+          <span class="story-label">Mnemba Reef</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="images/logo.png" alt="Bennsayd Tour and Safaris" class="footer-logo">
+        <p>Local experts in island tours and excursions across Zanzibar.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>📍 Stone Town, Zanzibar, Tanzania</p>
+        <p>+255 745 466 424</p>
+        <p>info@bennsaydtoursafaris.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bennsayd Tour and Safaris. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>

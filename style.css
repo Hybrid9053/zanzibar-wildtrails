@@ -19,6 +19,29 @@
   --transition: all 0.25s ease;
 }
 
+/* Dark mode: same brand colors (navy + emerald), darker surfaces.
+   Toggled by adding .dark-theme to <html> (see theme-toggle script). */
+html.dark-theme {
+  --color-bg: #0b1220;
+  --color-white: #16213a;
+  --color-text: #e2e8f0;
+  --color-text-light: #94a3b8;
+  --color-border: #2a3a55;
+  --color-primary-light: #1e293b;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+html.dark-theme .card-image.placeholder {
+  background: repeating-linear-gradient(
+    45deg,
+    #16213a,
+    #16213a 10px,
+    #0b1220 10px,
+    #0b1220 20px
+  );
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -134,6 +157,49 @@ ul {
   height: 3px;
   background-color: var(--color-white);
   border-radius: 2px;
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--color-white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+  background-color: rgba(5, 150, 105, 0.15);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-white);
+}
+
+.theme-toggle .icon-moon {
+  display: block;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+html.dark-theme .theme-toggle .icon-moon {
+  display: none;
+}
+
+html.dark-theme .theme-toggle .icon-sun {
+  display: block;
 }
 
 /* ===== HERO ===== */
@@ -1010,5 +1076,419 @@ ul {
   .lightbox-thumb {
     width: 48px;
     height: 48px;
+  }
+}
+
+/* ===== EXPERIENCE PAGE HERO ===== */
+.experience-section {
+  padding: 4rem 1.5rem;
+}
+
+/* ===== ITINERARY BUILDER ===== */
+.itinerary-wrap {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.itinerary-days {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.day-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid transparent;
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+  color: var(--color-text);
+  font-family: var(--font-main);
+}
+
+.day-tab:hover {
+  border-left-color: var(--color-accent);
+  box-shadow: var(--shadow);
+}
+
+.day-tab.active {
+  border-left-color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.day-tab .day-number {
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 32px;
+}
+
+.day-tab .day-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.day-tab .day-label strong {
+  font-size: 0.95rem;
+}
+
+.day-tab .day-label span {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.itinerary-detail {
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  opacity: 0;
+  animation: itineraryFadeIn 0.4s ease forwards;
+}
+
+@keyframes itineraryFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.itinerary-detail h3 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.itinerary-detail .itinerary-location {
+  color: var(--color-accent-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.itinerary-detail p.itinerary-desc {
+  color: var(--color-text-light);
+  margin-bottom: 1.2rem;
+}
+
+.itinerary-highlights {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.itinerary-highlights li {
+  padding: 0.5rem 0;
+  padding-left: 1.6rem;
+  position: relative;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.itinerary-highlights li:last-child {
+  border-bottom: none;
+}
+
+.itinerary-highlights li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.itinerary-map-placeholder {
+  width: 100%;
+  height: 260px;
+  border-radius: var(--radius);
+  background-color: var(--color-primary-light);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Mobile: day tabs become a horizontal swipeable row */
+@media (max-width: 900px) {
+  .itinerary-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .itinerary-days {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .day-tab {
+    flex-shrink: 0;
+    border-left: none;
+    border-bottom: 4px solid transparent;
+  }
+
+  .day-tab.active {
+    border-bottom-color: var(--color-accent-dark);
+  }
+}
+
+/* ===== RESERVATION & DEPOSIT WIDGET ===== */
+.reservation-widget {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hover);
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+}
+
+.reservation-widget h3 {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.reservation-widget .widget-subtitle {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.reservation-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.price-summary {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.price-summary .price-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  padding: 0.3rem 0;
+}
+
+.price-summary .price-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  padding-top: 0.6rem;
+  margin-top: 0.4rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.price-summary .deposit-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(5, 150, 105, 0.1);
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin-top: 0.9rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+}
+
+.checkout-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  min-height: 1.2rem;
+}
+
+.checkout-status.processing {
+  color: var(--color-text-light);
+}
+
+.checkout-status.success {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+/* ===== AUDIO-VISUAL EXPERIENCE ===== */
+.av-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  align-items: start;
+}
+
+.soundscape-widget {
+  background-color: var(--color-primary);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.soundscape-widget p {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+}
+
+.sound-toggle-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: var(--transition);
+}
+
+.sound-toggle-btn:hover {
+  background-color: var(--color-accent-dark);
+  transform: scale(1.05);
+}
+
+.sound-toggle-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.video-story-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.video-story-card {
+  flex-shrink: 0;
+  width: 180px;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-primary-light);
+  box-shadow: var(--shadow);
+}
+
+.video-story-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-story-card .story-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.8rem 0.6rem 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .av-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== TRUST SIGNALS DASHBOARD ===== */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.trust-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.trust-card:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-hover);
+}
+
+.trust-card .trust-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.trust-card h4 {
+  color: var(--color-primary);
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.trust-card ul {
+  list-style: none;
+  text-align: left;
+}
+
+.trust-card ul li {
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  padding: 0.35rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.trust-card ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reservation-row {
+    grid-template-columns: 1fr;
   }
 }
