@@ -1314,3 +1314,245 @@ html.dark-theme .theme-toggle .icon-sun {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== SMALL-SCREEN SAFEGUARDS ===== */
+/* Keep every section within the viewport, including on narrow 320px phones. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+button,
+input,
+textarea {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+    order: 3;
+    padding: 0.5rem;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: var(--color-primary);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-links.open {
+    max-height: 26rem;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    border-bottom-color: var(--color-accent);
+  }
+
+  .intro-flex {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .container,
+  .navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .logo img {
+    height: 42px;
+    max-width: min(58vw, 230px);
+  }
+
+  .hero,
+  .hero[style] {
+    padding: 3.5rem 1rem !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-buttons {
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: min(100%, 22rem);
+    text-align: center;
+  }
+
+  .btn-outline {
+    margin: 0.3rem 0 0;
+  }
+
+  .section,
+  .experience-section {
+    padding: 3rem 1rem;
+  }
+
+  .section-title {
+    margin-bottom: 2rem;
+  }
+
+  .section-title h2,
+  .text-block h2 {
+    font-size: clamp(1.55rem, 7vw, 1.9rem);
+  }
+
+  .grid,
+  .feature-list,
+  .footer-grid,
+  .contact-wrapper {
+    gap: 1.25rem;
+  }
+
+  .card-image {
+    height: clamp(180px, 58vw, 220px);
+  }
+
+  .card-body,
+  .contact-form,
+  .itinerary-detail {
+    padding: 1.25rem;
+  }
+
+  .location-tag {
+    max-width: calc(100% - 2rem);
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .intro-flex {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .intro-flex .text-block,
+  .intro-flex .image-block {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .intro-flex .image-block {
+    height: clamp(220px, 75vw, 350px);
+  }
+
+  .contact-info ul li {
+    display: block;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-info .btn-whatsapp {
+    max-width: none !important;
+    width: 100%;
+  }
+
+  .contact-map-embed {
+    height: 260px;
+  }
+
+  .footer-grid {
+    text-align: left;
+  }
+
+  .footer-logo {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .map-overlay,
+  .lightbox-overlay {
+    padding: 0.75rem;
+  }
+
+  .map-box iframe {
+    height: min(65vh, 320px);
+  }
+
+  .lightbox-image-wrap img {
+    max-height: 48vh;
+  }
+
+  .lightbox-map {
+    height: 180px;
+  }
+
+  .itinerary-days {
+    gap: 0.5rem;
+  }
+
+  .day-tab {
+    max-width: 82vw;
+    padding: 0.8rem;
+  }
+
+  .itinerary-map-placeholder {
+    height: 210px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar {
+    padding: 0.7rem 0.75rem;
+  }
+
+  .logo img {
+    height: 36px;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    margin-right: 0.15rem;
+  }
+
+  .nav-toggle {
+    padding: 0.35rem;
+  }
+
+  .nav-toggle span {
+    width: 23px;
+  }
+
+  .btn {
+    padding: 0.8rem 1rem;
+  }
+}
