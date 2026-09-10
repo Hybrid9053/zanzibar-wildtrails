@@ -1213,18 +1213,13 @@ html.dark-theme .theme-toggle .icon-sun {
   font-weight: 700;
 }
 
-.itinerary-map-placeholder {
+.itinerary-map {
   width: 100%;
   height: 260px;
   border-radius: var(--radius);
-  background-color: var(--color-primary-light);
-  color: #94a3b8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  text-align: center;
-  padding: 1rem;
+  border: 0;
+  display: block;
+  box-shadow: var(--shadow);
 }
 
 /* Mobile: day tabs become a horizontal swipeable row */
@@ -1531,7 +1526,7 @@ textarea {
     padding: 0.8rem;
   }
 
-  .itinerary-map-placeholder {
+  .itinerary-map {
     height: 210px;
   }
 }

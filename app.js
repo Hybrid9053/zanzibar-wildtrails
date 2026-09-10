@@ -92,7 +92,6 @@ const itineraryDays = [
 function renderItineraryDetail(dayIndex) {
   const day = itineraryDays[dayIndex];
   const detailEl = document.getElementById('itineraryDetail');
-  const mapEl = document.getElementById('itinerary-map');
   if (!detailEl || !day) return;
 
   const highlightsHtml = day.highlights.map(function(h) {
@@ -104,21 +103,15 @@ function renderItineraryDetail(dayIndex) {
     '<p class="itinerary-location">📍 ' + day.location + '</p>' +
     '<p class="itinerary-desc">' + day.description + '</p>' +
     '<ul class="itinerary-highlights">' + highlightsHtml + '</ul>' +
-    '<div class="itinerary-map-placeholder" id="itinerary-map" data-location="' + day.mapQuery + '">' +
-      'Map for ' + day.title + '<br>(Leaflet.js map initializes here)' +
-    '</div>';
+    '<iframe class="itinerary-map" title="Map for ' + day.title + '" ' +
+      'src="https://www.google.com/maps?q=' + encodeURIComponent(day.mapQuery) + '&output=embed" ' +
+      'loading="lazy" allowfullscreen></iframe>';
 
   // Restart the fade-in animation
   detailEl.style.animation = 'none';
   void detailEl.offsetWidth;
   detailEl.style.animation = null;
 
-  // --- Leaflet.js integration point ---
-  // Once Leaflet is loaded, replace the placeholder div above with:
-  //   const map = L.map('itinerary-map').setView([lat, lng], 13);
-  //   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-  //   L.marker([lat, lng]).addTo(map);
-  // Use day.mapQuery (or your own lat/lng lookup) to center the map per day.
 }
 
 function initItineraryBuilder() {
