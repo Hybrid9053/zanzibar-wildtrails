@@ -27,7 +27,7 @@ const itineraryDays = [
     title: "Stone Town Arrival",
     location: "Zanzibar Town, West Coast",
     mapQuery: "Stone Town, Zanzibar, Tanzania",
-    description: "Land at Zanzibar Airport and settle into Stone Town. Spend the afternoon wandering the UNESCO-listed alleys, markets, and historic waterfront before a welcome dinner.",
+    description: "Land at the airport and get settled in Stone Town. Spend the afternoon walking the old streets and markets, then a welcome dinner.",
     highlights: [
       "Airport pickup and hotel transfer included",
       "Guided walk through Stone Town's old quarter",
@@ -40,7 +40,7 @@ const itineraryDays = [
     title: "Spice Farm & Prison Island",
     location: "Dole Area & Offshore Stone Town",
     mapQuery: "Zanzibar Spice Farm, Zanzibar, Tanzania",
-    description: "Morning spice farm tour with tastings of cloves, vanilla, and cinnamon, followed by an afternoon boat trip to Prison Island to meet the giant Aldabra tortoises.",
+    description: "Morning spice farm visit with tastings of cloves, vanilla, and cinnamon. In the afternoon, a boat trip to Prison Island to see the giant tortoises.",
     highlights: [
       "Guided spice farm walk with tastings",
       "Traditional Swahili lunch included",
@@ -53,7 +53,7 @@ const itineraryDays = [
     title: "Jozani Forest & Kuza Cave",
     location: "Central-East Unguja Island",
     mapQuery: "Jozani Chwaka Bay National Park, Zanzibar, Tanzania",
-    description: "Track the rare red colobus monkey through Jozani Forest's groundwater woodland, then cool off in the freshwater pool of Kuza Cave near Jambiani.",
+    description: "Walk through Jozani Forest to spot the rare red colobus monkey, then cool off in the freshwater pool at Kuza Cave.",
     highlights: [
       "Guided walk through Jozani National Park",
       "Mangrove boardwalk included",
@@ -66,7 +66,7 @@ const itineraryDays = [
     title: "Nungwi Beach & Mnemba Snorkeling",
     location: "Northernmost Tip, North Coast",
     mapQuery: "Nungwi Beach, Zanzibar, Tanzania",
-    description: "Head north to Nungwi for a full day of white sand beach and a snorkeling excursion around the Mnemba Atoll reef, one of the best in the Indian Ocean.",
+    description: "Head north to Nungwi for a full day at the beach, plus a snorkeling trip to the Mnemba reef, one of the best in the region.",
     highlights: [
       "Boat excursion to Mnemba Atoll",
       "Snorkeling gear and guide included",
@@ -79,7 +79,7 @@ const itineraryDays = [
     title: "Departure Day",
     location: "Zanzibar International Airport",
     mapQuery: "Zanzibar Airport, Zanzibar, Tanzania",
-    description: "Enjoy a relaxed final morning, last-minute souvenir shopping in Stone Town, then transfer to the airport for your departure flight.",
+    description: "A relaxed final morning with time for souvenir shopping in Stone Town, then a ride to the airport for your flight home.",
     highlights: [
       "Late check-out where available",
       "Time for souvenir shopping",
